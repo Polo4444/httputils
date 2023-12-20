@@ -70,14 +70,14 @@ func ReturnReaderWithCode(w http.ResponseWriter, code int, v io.Reader) {
 	io.Copy(w, v)
 }
 
-func ReturnJSON(w http.ResponseWriter, v any) error {
+func ReturnJSON(w http.ResponseWriter, v interface{}) error {
 
 	w.Header().Set("Content-Type", "application/json")
 	writeOKStatus(w)
 	return json.NewEncoder(w).Encode(v)
 }
 
-func ReturnJSONWithCode(w http.ResponseWriter, code int, v any) error {
+func ReturnJSONWithCode(w http.ResponseWriter, code int, v interface{}) error {
 
 	w.Header().Set("Content-Type", "application/json")
 	writeCustomStatus(w, code)
