@@ -26,6 +26,6 @@ import (
     // create http router
 
     router := mux.NewRouter()
-    router.use(NewCaching([]string{"token"}).Middleware)
+    router.use(caching.NewCaching([]string{"token"}).Middleware)
 )
 ```
